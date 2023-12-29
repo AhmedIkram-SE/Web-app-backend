@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
+const port = process.env.PORT || 3030;
 const {
   createStudent,
   getAllStudents,
@@ -83,4 +84,6 @@ database.catch((err) => {
   console.log("Error Connecitng " + err);
 });
 
-app.listen(3030);
+app.listen(port, () => {
+  console.log("Running On local host: " + port);
+});
